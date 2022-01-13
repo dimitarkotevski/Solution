@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Catalog</title>
+    <link rel="stylesheet" href="./css/nav_style.css">
+    <link rel="stylesheet" href="css/card_style.css">
+</head>
+<body>
+<header class="header">
+    <h1 id="login">Guest</h1>
+    <nav class="navigation">
+        <ul>
+            <li><a href="login.html">Login</a> </li>
+            <li> <a href="book_catalog.html">Book Catalog</a> </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div id="data">
+
+    </div>
+</div>
+
+<script>
+    fetch("https://codeit-fe-internship-2022.herokuapp.com/api/books").then(
+        res => {
+            res.json().then(
+                data => {
+                    console.log(data);
+                    if (data.length > 0) {
+
+                        var temp = "";
+                        data.forEach((itemData) => {
+                            temp += "<div class='column'>";
+                            temp+="<div class='card'>";
+                            let link = "<img width='100px' src='https://codeit-fe-internship-2022.herokuapp.com/api/books/" + itemData.id+"/image' />";
+
+
+                            temp += "<div id='img'> "+ link + "</div>";
+
+                            temp += "<h2> " + itemData.title+"</h2> <hr/>";
+
+                            temp += "<h5>" + itemData.author + "</h5> <hr/>";
+
+
+                            temp += "<div>" + itemData.genres.splice(1,30,",") + "</div><br/>";
+
+                            var i=itemData.id;
+                            temp+=` <a class="details" id='${i}' href='detail_book.html' onclick="sessionStorage.id=${itemData.id}" `
+
+                            temp+=">Details</a>"
+
+                            temp += "</div >";
+                            temp+="</div>";
+
+                        });
+                        document.getElementById('data').innerHTML = temp;
+                    }
+                }
+            )
+        }
+    )
+</script>
+<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>

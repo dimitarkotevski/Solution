@@ -1,0 +1,29 @@
+
+.row_detail{
+display: flex;
+    border-radius: 0% 10%;
+    padding: 5%;
+    font-size: 30px;
+    font-family: "Cantarell Light";
+    font-weight: bold;
+    background-color: #f1f1f1;
+}
+#data{
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+.headers{
+    font-family: Georgia, serif;
+    background-color: #333333;
+    color: white;
+    border-radius: 20px;
+    padding-left: 20px;
+}
+.column_detail{
+    padding-left: 20px;
+}
+.text{
+    padding-left: 50px;
+}
+
