@@ -1,12 +1,13 @@
 body{
     font-family: Georgia, serif;
+
 }
 
 form{
     border: 1px solid grey;
     margin: 1%;
     width: 500px;
-
+    position: center;
     text-align: center;
 }
 input[type=text], input[type=password]{

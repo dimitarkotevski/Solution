@@ -6,7 +6,7 @@ body{
     padding: 5%;
     font-size: 30px;
 
-
+display: flex;
     background-color: #f1f1f1;
 }
 #data{
@@ -22,11 +22,11 @@ body{
     padding-left: 20px;
 }
 .column_img{
-    display: inline-grid;
+    display: inline-block;
     text-align: center;
 }
 .column_detail{
-display: inline-grid;
+
     padding-left: 20px;
 }
 .text{
