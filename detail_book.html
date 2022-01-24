@@ -11,8 +11,9 @@
 <header class="header">
     <h1 id="login">Guest</h1>
     <nav class="navigation">
-        <ul>
-            <li><a href="book_catalog.html">Back</a> </li>
+        <ul >
+            <li style="float: left"><a href="book_catalog.html">Back</a> </li>
+            <li style="float: right"><a href="login.html">Logout</a> </li>
         </ul>
     </nav>
 </header>
@@ -56,6 +57,8 @@
     }).catch(function() {
         console.log("Something is wrong man");
     });
+
+    document.getElementById("login").innerHTML=sessionStorage.username;
 </script>
 <script type="text/javascript" src="js/login.js"></script>
 </body>

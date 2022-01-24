@@ -19,36 +19,43 @@ function check(event) {
     event.preventDefault();
     document.getElementById('message').innerHTML = "checking";
     sessionStorage.username=document.getElementById("username").value;
-    
+    var username=document.getElementById("username").value;
+    var password=document.getElementById("password").value;
+    if(username==="" || password==="" ){
+        alert("Field can't be empty");
+        window.location.replace("login.html");
+    }
+    else {
+        document.getElementById("login").innerHTML = sessionStorage.username;
+        const url = "https://codeit-fe-internship-2022.herokuapp.com/api/authentication";
+        const data = {
+            "username": document.getElementById('username').value,
+            "password": document.getElementById('password').value
+        };
+        const other_params = {
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify(data),
+            method: "POST",
+            mode: "cors"
+        };
 
-    document.getElementById("login").innerHTML=sessionStorage.username;
-    const url = "https://codeit-fe-internship-2022.herokuapp.com/api/authentication";
-    const data = {
-        "username": document.getElementById('username').value,
-        "password": document.getElementById('password').value
-    };
-    const other_params = {
-        headers : { "content-type" : "application/json"},
-        body : JSON.stringify(data),
-        method : "POST",
-        mode : "cors"
-    };
+        fetch(url, other_params)
+            .then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Could not reach the API: " + response.statusText);
+                }
+            }).then(function (data) {
+            document.getElementById("message").innerHTML = data.encoded;
+            document.getElementById("message").style.display = "block";
+        }).catch(function (error) {
+            document.getElementById("message").innerHTML = error.message;
+            document.getElementById("message").style.display = "block";
+        });
+        window.location.href = './book_catalog.html';
+    }
 
-    fetch(url, other_params)
-        .then(function(response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error("Could not reach the API: " + response.statusText);
-            }
-        }).then(function(data) {
-        document.getElementById("message").innerHTML = data.encoded;
-        document.getElementById("message").style.display="block";
-    }).catch(function(error) {
-        document.getElementById("message").innerHTML = error.message;
-        document.getElementById("message").style.display="block";
-    });
-    return true;
 }
 
 

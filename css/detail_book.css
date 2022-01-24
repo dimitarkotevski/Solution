@@ -1,11 +1,12 @@
-
+body{
+    font-family: Georgia, serif;
+}
 .row_detail{
-display: flex;
     border-radius: 0% 10%;
     padding: 5%;
     font-size: 30px;
-    font-family: "Cantarell Light";
-    font-weight: bold;
+
+
     background-color: #f1f1f1;
 }
 #data{
@@ -14,13 +15,18 @@ display: flex;
 
 }
 .headers{
-    font-family: Georgia, serif;
+    font-weight: bold;
     background-color: #333333;
     color: white;
     border-radius: 20px;
     padding-left: 20px;
 }
+.column_img{
+    display: inline-grid;
+    text-align: center;
+}
 .column_detail{
+display: inline-grid;
     padding-left: 20px;
 }
 .text{
